@@ -22,7 +22,7 @@ Finally, you can log out from this app easily and log in again or use a new acco
 
 - Clone this repository.
 ```
-git clone https://github.com/Abdulrahem-Alzubi/product-store.git
+git clone https://github.com/alissar583/E-commerce.git
 ```
 
 - copy this command to terminal for install the composer.
