@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
 //            $table->text('facebook_url')->nullable();
 //            $table->text('whatsapp_url')->nullable();
             $table->date('expired_date');
+            $table->softDeletes();
             $table->integer('quantity')->default(1);
             $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();

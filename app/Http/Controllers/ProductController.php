@@ -187,10 +187,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->owner_id == Auth::id()) {
-            $product->delete();
-        }else {
-            return response()->json(null, 403);
-        }
+        Product::destroy($product->id);
+        // if ($product->owner_id == Auth::id()) {
+        //     $product->delete();
+        // }else {
+        //     return response()->json(null, 403);
+        // }
     }
 }

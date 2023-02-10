@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\RealTimeMessage;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
@@ -15,6 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        event(new RealTimeMessage('Hello World'));
        $categories = Category::query()->with('products')->get();
         return  response()->json(["key"=>$categories],200);
     }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\RealTimeMessage;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
@@ -47,6 +50,8 @@ class AuthController extends Controller
         $data['user']=$user;
         $data['type']='Bearer';
         $data['token']=$token->accessToken;
+
+         event(new RealTimeMessage('Hello World'));
 
         return response()->json($data, 200);
     }
